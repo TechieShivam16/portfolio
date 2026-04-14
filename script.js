@@ -32,7 +32,6 @@ const progressBar = document.getElementById('progress-bar');
 const triggerBox = document.getElementById('trigger-box');
 const projectsSection = document.getElementById('projects');
 
-// Sequential Animation Reset logic
 function resetHeroAnimation() {
     const heroItems = document.querySelectorAll('#home .reveal-text');
     const heroBalls = document.querySelectorAll('.ball');
@@ -43,7 +42,7 @@ function resetHeroAnimation() {
     heroBalls.forEach(ball => {
         ball.style.animation = 'none';
         void ball.offsetWidth;
-        ball.style.animation = ''; // Re-enable CSS animations with fixed delays
+        ball.style.animation = '';
     });
 }
 
@@ -63,20 +62,11 @@ function resetProjectsAnimation() {
     projectItems.forEach((item, index) => { setTimeout(() => { item.classList.add('animate'); }, index * 150); });
 }
 
-// ---------------------------------------------------------
-// NEW MAGIC BALL LOGIC: Disappear on Leave, Pop-in on Leave
-// ---------------------------------------------------------
 const heroBalls = document.querySelectorAll('.ball');
 heroBalls.forEach(ball => {
     ball.addEventListener('mouseleave', () => {
-        // Step 1: Disappear (kill all animations)
         ball.style.animation = 'none';
-
-        // Trigger reflow
         void ball.offsetWidth;
-
-        // Step 2: Restart the popOut animation (Disappear -> Scale 0 -> Scale 1)
-        // Delay is 0 so it pops back instantly as requested
         ball.style.animation = 'popOut 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, glowPulse 2s infinite alternate ease-in-out forwards';
     });
 });
@@ -93,7 +83,6 @@ ctaParent.addEventListener('mouseenter', () => { ctaParent.classList.add('zoom-a
 ctaBtn.addEventListener('mouseenter', () => { ctaParent.classList.remove('zoom-active'); ctaParent.classList.add('no-zoom'); });
 ctaParent.addEventListener('mouseleave', () => { ctaParent.classList.remove('zoom-active'); ctaParent.classList.remove('no-zoom'); });
 
-// REVEAL ONLY ONCE Logic
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {

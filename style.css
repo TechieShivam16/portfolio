@@ -226,7 +226,7 @@ nav {
     scale: 1.1;
 }
 
-/* --- SKILLS BALLS (ORDER & SPEEDS LOCKED) --- */
+/* --- SKILLS BALLS --- */
 .hero-animation {
     flex: 0.8;
     display: flex;
@@ -402,7 +402,7 @@ nav {
     transform: translateX(-50%) translateY(0);
 }
 
-/* --- ABOUT SECTION (SIZES FIXED) --- */
+/* --- ABOUT SECTION --- */
 .about {
     padding: 100px 80px;
     background: #0f172a;
@@ -460,19 +460,18 @@ nav {
     box-shadow: 0 10px 30px rgba(99, 7, 238, 0.5);
 }
 
+
 .about-intro h3 {
     font-size: 35px;
     font-weight: 700;
     color: #ffffff;
-    margin-bottom: 3px;
 }
 
 .about-intro h4 {
     font-size: 18px;
     font-weight: 600;
+    margin-bottom: 15px;
 }
-
-/* Size reduced by 2px */
 
 .about-bio {
     font-size: 18px;
@@ -649,7 +648,7 @@ nav {
     box-shadow: 0 0 30px rgba(99, 7, 238, 0.6);
 }
 
-/* --- PROJECTS SECTION (HEIGHT 420px LOCKED) --- */
+/* --- PROJECTS SECTION --- */
 .projects {
     padding: 100px 50px;
     background: #0f172a;
