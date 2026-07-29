@@ -27,16 +27,15 @@ function type() {
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-links a');
 const statBoxes = document.querySelectorAll('.stat-box');
-const revealTexts = document.querySelectorAll('.reveal-text');
 const progressBar = document.getElementById('progress-bar');
-const triggerBox = document.getElementById('trigger-box');
+const triggerBox = document.getElementById('anim-trigger');
 const projectsSection = document.getElementById('projects');
 
 function resetHeroAnimation() {
     const heroItems = document.querySelectorAll('#home .reveal-text');
     const heroBalls = document.querySelectorAll('.ball');
     heroItems.forEach(item => item.classList.remove('animate'));
-    void document.getElementById('hero-text-parent').offsetWidth;
+    void document.getElementById('intro-txt').offsetWidth;
     heroItems.forEach((item, index) => { setTimeout(() => { item.classList.add('animate'); }, index * 150); });
 
     heroBalls.forEach(ball => {
@@ -86,7 +85,7 @@ ctaParent.addEventListener('mouseleave', () => { ctaParent.classList.remove('zoo
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            if (entry.target.id === 'trigger-box') {
+            if (entry.target.id === 'anim-trigger') {
                 resetAboutAnimation();
                 revealObserver.unobserve(entry.target);
             }
