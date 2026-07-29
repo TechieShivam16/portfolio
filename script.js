@@ -119,3 +119,45 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('DOMContentLoaded', type);
+const menuToggle = document.querySelector('.menu-toggle');
+const mobileNav = document.querySelector('.nav-links');
+if (menuToggle && mobileNav) {
+    menuToggle.addEventListener('click', () => {
+        const isOpen = mobileNav.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', isOpen);
+    });
+    mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+    }));
+}
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', event => {
+        event.preventDefault();
+        alert('Thank you! Your message has been received.');
+        contactForm.reset();
+    });
+}
+
+const aiToggle = document.querySelector('.ai-toggle');
+const aiChat = document.querySelector('.ai-chat');
+const aiClose = document.querySelector('.ai-close');
+const aiForm = document.querySelector('.ai-form');
+const aiInput = document.querySelector('.ai-input');
+const aiMessages = document.querySelector('.ai-messages');
+function addAiMessage(message, sender) { const bubble = document.createElement('div'); bubble.className = `ai-message ${sender}`; bubble.textContent = message; aiMessages.appendChild(bubble); aiMessages.scrollTop = aiMessages.scrollHeight; }
+function getAiReply(question) { const text = question.toLowerCase(); if (text.includes('skill') || text.includes('technology')) return 'Shivam works with HTML, CSS, JavaScript, React, Node.js, MongoDB and SQL.'; if (text.includes('project')) return 'You can see Shivam\'s projects in the Projects section. He builds modern, responsive web applications.'; if (text.includes('contact') || text.includes('email') || text.includes('phone')) return 'You can use the contact form, call +91 7600065230, or email shivammaurya1610@gmail.com.'; if (text.includes('hire') || text.includes('available')) return 'Shivam is available Monday to Saturday, 10:00 AM to 8:00 PM. Use the contact form to start a conversation.'; return 'Thanks for your question! Please ask about Shivam\'s skills, projects, availability, or contact details.'; }
+if (aiToggle && aiChat && aiClose && aiForm && aiInput && aiMessages) { aiToggle.addEventListener('click', () => { aiChat.classList.add('open'); aiToggle.setAttribute('aria-expanded', 'true'); aiInput.focus(); }); aiClose.addEventListener('click', () => { aiChat.classList.remove('open'); aiToggle.setAttribute('aria-expanded', 'false'); }); aiForm.addEventListener('submit', event => { event.preventDefault(); const question = aiInput.value.trim(); if (!question) return; addAiMessage(question, 'user'); aiInput.value = ''; window.setTimeout(() => addAiMessage(getAiReply(question), 'bot'), 300); }); }
+
+const bottomNavLinks = document.querySelectorAll('.bottom-nav-link');
+function updateBottomNavigation() {
+    let current = 'home';
+    document.querySelectorAll('section[id]').forEach(section => {
+        if (window.scrollY >= section.offsetTop - 170) current = section.id;
+    });
+    if (current === 'why-choose-me') current = 'about';
+    bottomNavLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${current}`));
+}
+window.addEventListener('scroll', updateBottomNavigation);
+window.addEventListener('load', updateBottomNavigation);
