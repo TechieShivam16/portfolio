@@ -1,4 +1,4 @@
-/* --- GLOBAL RESET & BASE STYLES --- */
+﻿/* Global */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +17,7 @@ p b {
     color: #4b6382;
 }
 
-/* --- PROGRESS BAR --- */
+/* Progress Bar */
 #progress-container {
     position: fixed;
     top: 0;
@@ -35,7 +35,7 @@ p b {
     transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* --- KEYFRAME ANIMATIONS --- */
+/* Animations */
 @keyframes revealUp {
     0% {
         opacity: 0;
@@ -76,7 +76,7 @@ p b {
     }
 }
 
-/* Reveal Animation Classes */
+/* Reveal Animation */
 .reveal-text {
     opacity: 0;
     transform: translateY(30px);
@@ -86,7 +86,7 @@ p b {
     animation: revealUp 1s ease-out forwards;
 }
 
-/* --- HEADER & NAVIGATION --- */
+/* Header and Navigation */
 header {
     background: linear-gradient(45deg, #a4b5c4, #4b6382, #071739) border-box;
     transition: all 0.3s ease;
@@ -145,7 +145,7 @@ nav {
     transform: translateY(-3px);
 }
 
-/* --- HERO (INTRO) SECTION --- */
+/* Hero Section */
 .intro {
     height: 100vh;
     display: flex;
@@ -270,7 +270,7 @@ nav {
 
 /* Trails and balls are separate elements now (see HTML), painted in DOM order: all
    trail-wrappers come first, so they always render behind every ball, no matter
-   which ball they belong to. z-index is intentionally left unset here — a
+   which ball they belong to. z-index is intentionally left unset here â€” a
    transform already gives each wrapper its own stacking context, so DOM order
    is what actually decides who paints on top. */
 .trail-wrapper,
@@ -285,7 +285,7 @@ nav {
     pointer-events: none;
 }
 
-/* --- MOTION TRAIL (TAIL) EFFECT --- */
+/* Motion Trail */
 .motion-trail {
     position: absolute;
     inset: 0;
@@ -341,7 +341,7 @@ nav {
     }
 }
 
-/* Individual Skill Balls */
+/* Skill Balls */
 .ball {
     position: absolute;
     width: 90px;
@@ -359,7 +359,6 @@ nav {
     transform: translateX(195px) rotate(calc(-1 * var(--angle-offset))) scale(1);
     opacity: 0;
     z-index: 10;
-    /* Forces ball to the absolute top */
     animation: popOut 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, glowPulse 2s infinite alternate ease-in-out forwards;
     transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
 }
@@ -414,7 +413,7 @@ nav {
     animation-delay: 1.5s, 2.5s;
 }
 
-/* Skill Ball Hover Effects */
+/* Skill Ball Hover */
 .ball-wrapper:hover {
     z-index: 1000;
 }
@@ -425,7 +424,7 @@ nav {
     opacity: 1 !important;
 }
 
-/* --- ABOUT SECTION --- */
+/* About Section */
 .about {
     padding: 100px 80px;
     background: #cdd5db;
@@ -588,7 +587,7 @@ nav {
     text-transform: uppercase;
 }
 
-/* --- WHY CHOOSE ME SECTION --- */
+/* Why Choose Me Section */
 .features {
     padding: 100px 80px;
     background: #071739;
@@ -679,7 +678,7 @@ nav {
     box-shadow: 0 0 20px rgba(75, 99, 130, 0.6);
 }
 
-/* --- PROJECTS SECTION --- */
+/* Projects Section */
 .projects {
     padding: 100px 50px;
     background: #cdd5db;
@@ -787,17 +786,17 @@ nav {
     font-size: 12px;
     margin-left: 0;
 }
-/* Skills, contact, call-to-action and responsive mobile layout */
+/* Skills, Contact, CTA and Mobile */
 .menu-toggle{display:none;border:0;background:transparent;cursor:pointer}.menu-toggle span{width:26px;height:3px;display:block;margin:5px;border-radius:10px;background:#071739;transition:.3s ease}.skills-section,.contact-section{padding:100px 80px;background:#cdd5db}.skills-grid{max-width:1050px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}.skill-card{background:rgba(255,255,255,.52);border:1px solid rgba(7,23,57,.18);box-shadow:0 12px 28px rgba(7,23,57,.08);border-radius:18px;padding:28px 18px 20px;text-align:center;transition:.35s ease}.skill-card:hover{transform:translateY(-9px);border-color:#4b6382;box-shadow:0 18px 32px rgba(7,23,57,.2)}.skill-card img{width:48px;height:48px;object-fit:contain;margin-bottom:15px}.skill-card h3{color:#071739;font-size:18px;margin-bottom:8px}.skill-card p{color:#4b6382;font-size:14px;margin-bottom:15px}.skill-progress{height:7px;background:rgba(7,23,57,.18);border-radius:20px;overflow:hidden}.skill-progress span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#a4b5c4,#4b6382,#071739)}.contact-heading{font-size:clamp(34px,5vw,58px);color:#071739;font-weight:800}.contact-layout{max-width:1050px;margin:0 auto;display:grid;grid-template-columns:1.25fr 1fr;gap:30px;align-items:start}.contact-form,.info-card{border:1px solid rgba(7,23,57,.18);background:rgba(255,255,255,.52);box-shadow:0 12px 28px rgba(7,23,57,.08);border-radius:20px}.contact-form{padding:30px}.contact-form h3{color:#071739;font-size:23px;margin-bottom:22px}.contact-form input,.contact-form textarea{width:100%;padding:15px;margin-bottom:14px;border:1px solid rgba(7,23,57,.22);outline:0;border-radius:10px;color:#071739;background:rgba(255,255,255,.45)}.contact-form input:focus,.contact-form textarea:focus{border-color:#4b6382;box-shadow:0 0 0 3px rgba(75,99,130,.13)}.contact-form textarea{min-height:130px;resize:vertical}.contact-submit{width:100%;cursor:pointer;font-size:15px}.contact-info{display:grid;gap:16px}.info-card{min-height:105px;padding:20px;text-align:center;text-decoration:none;color:inherit;display:flex;gap:11px;justify-content:center;align-items:center;transition:.3s ease}.info-card:hover{transform:translateX(7px);border-color:#4b6382}.info-card h3{color:#071739;margin-bottom:6px}.info-card p{color:#4b6382;font-size:14px}.bottom-cta{max-width:1120px;margin:20px auto 90px;padding:35px 42px;border-radius:25px;color:white;display:flex;justify-content:space-between;align-items:center;gap:25px;background:linear-gradient(45deg,#a4b5c4,#4b6382,#071739);box-shadow:0 16px 35px rgba(7,23,57,.22)}.bottom-cta h2{font-size:clamp(23px,3vw,34px);margin-bottom:8px}.bottom-cta p{opacity:.9}.bottom-cta-btn{padding:14px 25px;white-space:nowrap;border-radius:50px;color:white;text-decoration:none;font-weight:700;background:#071739;transition:.3s ease}.bottom-cta-btn:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(0,0,0,.25)}footer{padding:65px 10% 20px;color:#cdd5db;background:#071739}.footer-grid{max-width:1150px;margin:0 auto;display:grid;grid-template-columns:1.5fr .8fr 1.2fr;gap:60px}.footer-grid h2{color:#cdd5db;margin-bottom:15px}.footer-grid h3{margin-bottom:16px}.footer-grid p,.footer-grid a{display:block;color:#a4b5c4;font-size:14px;line-height:1.8;text-decoration:none}.footer-grid a:hover{color:white}.footer-bottom{max-width:1150px;margin:45px auto 0;padding-top:20px;border-top:1px solid rgba(205,213,219,.18);display:flex;justify-content:space-between;gap:15px}.footer-bottom p{color:#a4b5c4;font-size:13px}
 @media(max-width:900px){nav{padding:0 24px}.menu-toggle{display:block}.nav-links{position:absolute;top:75px;left:0;width:100%;padding:18px 24px;background:#cdd5db;border-bottom:1px solid #071739;display:none;flex-direction:column;align-items:stretch}.nav-links.open{display:flex}.nav-links a{text-align:center}.intro{min-height:100vh;height:auto;padding:130px 25px 60px;flex-direction:column;text-align:center}.intro-box{max-width:100%}.intro-anim{margin-top:40px;justify-content:center}.main-circle{width:330px;height:330px;transform:scale(.82)}.about,.features,.projects,.skills-section,.contact-section{padding:75px 24px}.about-wrap,.contact-layout{grid-template-columns:1fr;flex-direction:column;gap:35px}.about-dp{margin:0 auto}.feat-grid,.skills-grid{grid-template-columns:repeat(2,1fr)}.proj-grid{grid-template-columns:repeat(2,1fr)}.bottom-cta{margin:10px 24px 70px}}
 @media(max-width:560px){.logo{font-size:20px}.section-title{font-size:34px}.intro h1{font-size:36px}.intro p{font-size:16px}.btn,.btn-outline{padding:12px 18px;font-size:14px}.main-circle{width:290px;height:290px;transform:scale(.7);margin:-35px 0}.highlights-list,.about-stats,.feat-grid,.skills-grid,.proj-grid{grid-template-columns:1fr}.bottom-cta{padding:30px 24px;text-align:center;flex-direction:column}.footer-grid,.footer-bottom{grid-template-columns:1fr;display:grid;gap:25px}footer{padding:55px 24px 20px}}
 
-/* AI assistant */
+/* AI Assistant */
 .ai-assistant{position:fixed;right:28px;bottom:28px;z-index:1500}.ai-toggle{width:58px;height:58px;border:0;border-radius:50%;cursor:pointer;color:#fff;font-weight:800;font-size:16px;background:linear-gradient(45deg,#a4b5c4,#4b6382,#071739);box-shadow:0 10px 25px rgba(7,23,57,.32);transition:.3s ease}.ai-toggle:hover{transform:translateY(-4px) scale(1.05)}.ai-chat{position:absolute;right:0;bottom:72px;width:340px;overflow:hidden;border:1px solid rgba(7,23,57,.18);border-radius:18px;background:#cdd5db;box-shadow:0 18px 45px rgba(7,23,57,.28);display:none}.ai-chat.open{display:block}.ai-chat-head{padding:15px 17px;display:flex;align-items:center;justify-content:space-between;color:#fff;background:linear-gradient(45deg,#a4b5c4,#4b6382,#071739)}.ai-chat-head small{display:block;margin-top:3px;font-size:12px;opacity:.85}.ai-close{border:0;background:transparent;color:#fff;font-size:28px;cursor:pointer}.ai-messages{height:250px;padding:15px;overflow-y:auto;display:flex;flex-direction:column;gap:10px}.ai-message{max-width:85%;padding:10px 12px;border-radius:12px;font-size:14px;line-height:1.45}.ai-message.bot{align-self:flex-start;color:#071739;background:#fff}.ai-message.user{align-self:flex-end;color:#fff;background:#4b6382}.ai-form{padding:12px;display:flex;gap:8px;border-top:1px solid rgba(7,23,57,.15)}.ai-input{min-width:0;flex:1;padding:10px;border:1px solid #a4b5c4;border-radius:9px;outline:0;background:#fff}.ai-form button{border:0;border-radius:9px;padding:0 13px;color:#fff;font-weight:700;cursor:pointer;background:#071739}
-/* Mobile refinement */
+/* Mobile Layout */
 @media(max-width:560px){header{height:64px}nav{height:64px;padding:0 16px}.nav-links{top:64px;padding:14px 16px}.nav-links a{padding:10px 16px}.intro{padding:105px 18px 48px}.about,.features,.projects,.skills-section,.contact-section{padding:60px 18px}.section-header{margin-bottom:38px}.section-subtitle{font-size:15px}.about-dp{width:min(270px,85vw)}.about-stats{gap:10px}.stat-box{padding:13px 8px}.feat-grid{gap:16px}.feat-card{padding:28px 20px}.proj-grid{gap:16px}.proj-card{min-height:unset}.proj-img{height:210px}.contact-form{padding:22px 18px}.info-card{min-height:92px;padding:16px}.bottom-cta{margin:0 18px 58px}.footer-bottom{margin-top:30px}.ai-assistant{right:16px;bottom:16px}.ai-chat{position:fixed;right:16px;bottom:86px;width:calc(100vw - 32px);max-width:360px}.ai-messages{height:min(42vh,300px)}}
 
-/* Mobile bottom navigation */
+/* Mobile Bottom Navigation */
 .mobile-bottom-nav{display:none}
 @media(max-width:900px){
     body{padding-bottom:82px}
@@ -810,3 +809,8 @@ nav {
     .ai-assistant{bottom:90px}
 }
 @media(max-width:560px){.ai-chat{bottom:142px}.ai-assistant{bottom:90px}}
+
+/* Mobile Hero */
+@media(max-width:900px){#home .reveal-text{opacity:1;transform:none;animation:none!important}}
+
+
