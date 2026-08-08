@@ -81,6 +81,16 @@ function resetContactAnimation() {
     items.forEach((item, index) => setTimeout(() => item.classList.add('animate'), index * 120));
 }
 
+function resetSkillsAnimation() {
+    const skillsSection = document.getElementById('skills');
+    if (!skillsSection) return;
+    const cards = skillsSection.querySelectorAll('.skill-card');
+    skillsSection.classList.remove('animate-skills');
+    cards.forEach(card => card.classList.remove('entrance-settled'));
+    void skillsSection.offsetWidth;
+    skillsSection.classList.add('animate-skills');
+}
+
 
 // ==========================================
 // Event Listeners (Menu, Scroll, Init)
@@ -97,6 +107,11 @@ document.getElementById('nav-projects').addEventListener('click', () => setTimeo
 const navContact = document.getElementById('nav-contact');
 if (navContact) {
     navContact.addEventListener('click', () => setTimeout(resetContactAnimation, 100));
+}
+
+const navSkills = document.getElementById('nav-skills');
+if (navSkills) {
+    navSkills.addEventListener('click', () => setTimeout(resetSkillsAnimation, 100));
 }
 
 // Progress Bar & Active Link state updater
