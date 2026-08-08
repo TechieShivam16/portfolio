@@ -62,7 +62,7 @@ function resetAboutAnimation() {
     const items = document.querySelectorAll('#about .reveal-text');
     items.forEach(item => item.classList.remove('animate'));
     void aboutTrigger.offsetWidth;
-    
+
     statBoxes.forEach((box, index) => setTimeout(() => box.classList.add('reveal'), index * 120));
     items.forEach((item, index) => setTimeout(() => item.classList.add('animate'), index * 100));
 }
@@ -85,8 +85,10 @@ function resetContactAnimation() {
 // ==========================================
 // Event Listeners (Menu, Scroll, Init)
 // ==========================================
-window.addEventListener('load', resetHeroAnimation);
-document.addEventListener('DOMContentLoaded', type);
+document.addEventListener('DOMContentLoaded', () => {
+    resetHeroAnimation();
+    type();
+});
 
 document.getElementById('nav-home').addEventListener('click', () => setTimeout(resetHeroAnimation, 100));
 document.getElementById('nav-about').addEventListener('click', () => setTimeout(resetAboutAnimation, 100));
@@ -101,18 +103,18 @@ if (navContact) {
 window.addEventListener('scroll', () => {
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     progressBar.style.width = height ? `${(document.documentElement.scrollTop / height) * 100}%` : '0%';
-    
+
     let current = 'home';
     sections.forEach(section => {
         if (window.scrollY >= section.offsetTop - 150) {
             current = section.id;
         }
     });
-    
+
     if (current === 'why-choose-me') {
         current = 'about';
     }
-    
+
     navLinks.forEach(link => {
         link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
     });
@@ -127,7 +129,7 @@ if (menuToggle && mobileMenu) {
         const isOpen = mobileMenu.classList.toggle('open');
         menuToggle.setAttribute('aria-expanded', String(isOpen));
     });
-    
+
     mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.remove('open');
@@ -185,20 +187,20 @@ if (aiToggle && aiChat && aiClose && aiForm && aiInput && aiMessages) {
         aiToggle.setAttribute('aria-expanded', 'true');
         aiInput.focus();
     });
-    
+
     aiClose.addEventListener('click', () => {
         aiChat.classList.remove('open');
         aiToggle.setAttribute('aria-expanded', 'false');
     });
-    
+
     aiForm.addEventListener('submit', event => {
         event.preventDefault();
         const question = aiInput.value.trim();
         if (!question) return;
-        
+
         addAiMessage(question, 'user');
         aiInput.value = '';
-        
+
         setTimeout(() => addAiMessage(getAiReply(question), 'bot'), 250);
     });
 }
@@ -234,9 +236,9 @@ if (featuresSection) {
             featureObserver.unobserve(entry.target);
         });
     }, { threshold: 0.25 }); // Lowered to 0.25 so the animation triggers perfectly as you scroll into the section
-    
+
     featureObserver.observe(featuresSection);
-    
+
     featuresSection.addEventListener('animationend', event => {
         if (event.animationName === 'simpleFadeIn') {
             event.target.classList.add('entrance-settled');
@@ -305,9 +307,9 @@ if (skillsSectionTarget) {
             skillObserver.unobserve(entry.target);
         });
     }, { threshold: 0.25 }); // Lowered to 0.25 so the animation triggers perfectly as you scroll into the section
-    
+
     skillObserver.observe(skillsSectionTarget);
-    
+
     skillsSectionTarget.addEventListener('animationend', event => {
         if (event.animationName === 'simpleFadeIn' && event.target.classList.contains('skill-card')) {
             event.target.classList.add('entrance-settled');
