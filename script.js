@@ -81,17 +81,6 @@ function resetContactAnimation() {
     items.forEach((item, index) => setTimeout(() => item.classList.add('animate'), index * 120));
 }
 
-function resetSkillsAnimation() {
-    const skillsSection = document.getElementById('skills');
-    if (!skillsSection) return;
-    const cards = skillsSection.querySelectorAll('.skill-card');
-    skillsSection.classList.remove('animate-skills');
-    cards.forEach(card => card.classList.remove('entrance-settled'));
-    void skillsSection.offsetWidth;
-    skillsSection.classList.add('animate-skills');
-}
-
-
 // ==========================================
 // Event Listeners (Menu, Scroll, Init)
 // ==========================================
@@ -99,20 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
     resetHeroAnimation();
     type();
 });
-
-document.getElementById('nav-home').addEventListener('click', () => setTimeout(resetHeroAnimation, 100));
-document.getElementById('nav-about').addEventListener('click', () => setTimeout(resetAboutAnimation, 100));
-document.getElementById('nav-projects').addEventListener('click', () => setTimeout(resetProjectsAnimation, 100));
-
-const navContact = document.getElementById('nav-contact');
-if (navContact) {
-    navContact.addEventListener('click', () => setTimeout(resetContactAnimation, 100));
-}
-
-const navSkills = document.getElementById('nav-skills');
-if (navSkills) {
-    navSkills.addEventListener('click', () => setTimeout(resetSkillsAnimation, 100));
-}
 
 // Progress Bar & Active Link state updater
 window.addEventListener('scroll', () => {
@@ -259,19 +234,6 @@ if (featuresSection) {
             event.target.classList.add('entrance-settled');
         }
     });
-}
-
-// Orbit Reset Logic
-function resetSkillOrbitAnimation() {
-    const orbitItems = document.querySelectorAll('.ball, .motion-trail');
-    orbitItems.forEach(item => { item.style.animation = 'none'; });
-    void document.getElementById('skills-orbit').offsetWidth;
-    orbitItems.forEach(item => { item.style.animation = ''; });
-}
-
-const homeNavigation = document.getElementById('nav-home');
-if (homeNavigation) {
-    homeNavigation.addEventListener('click', () => setTimeout(resetSkillOrbitAnimation, 120));
 }
 
 // Global Observer for remaining sections
